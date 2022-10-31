@@ -1,0 +1,13 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "The best way to watch videos.",
+  "scripts": {
+    "win": "node index.js"
+  },
+  "author": "sungwon",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
