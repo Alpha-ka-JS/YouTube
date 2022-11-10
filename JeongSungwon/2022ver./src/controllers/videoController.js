@@ -51,6 +51,15 @@ export const getUpload = (req, res) => {
 }
 
 export const postUpload = (req, res) => {
-  // here we will add a video to the videos array.
+  const { title } = req.body;
+  const newVideos = {
+    title,
+    rating: 0,
+    comments: 0,
+    createdAt: "just now",
+    views: 0,
+    id: videos.length + 1,
+  };
+  videos.push(newVideos);
   return res.redirect("/");
 }
