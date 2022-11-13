@@ -68,9 +68,9 @@ export const search = async(req, res) => {
   const {keyword} = req.query;
   let videos = []
   if(keyword) {
-    vidoes = await Video.find({
+    videos = await Video.find({
       title: {
-        $regex : new RegExp(`${keywrod}$`, "i"),
+        $regex : new RegExp(`${keyword}$`, "i"),
       },
     });
   }
