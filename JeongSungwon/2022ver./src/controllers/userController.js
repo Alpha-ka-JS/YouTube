@@ -11,13 +11,21 @@ export const postJoin = async (req, res) => {
   if (exists) {
     return res.render("join", { pageTitle, errorMessage: "This username/email is already taken." });
   }
-  await User.create({
-    name, username, email, password, location,
-  });
-  res.redirect("/login");
+  try {
+    await User.create({
+      name, username, email, password, location,
+    });
+    res.redirect("/login");
+  } catch {
+    return res.status(400).render("join", {
+      pageTitle: "Upload Video",
+      errorMessage: error._message,
+    });
+  }
+  // check if password correct
+  res.end();
 }
 export const edit = (req, res) => res.send("Edit User");
 export const remove = (req, res) => res.send("Remove User");
-export const login = (req, res) => res.send("Login");
 export const logout = (req, res) => res.send("Logout");
 export const see = (req, res) => res.send("See");
